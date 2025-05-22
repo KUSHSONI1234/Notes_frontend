@@ -1,0 +1,21 @@
+<div *ngIf="showAlert" class="alert alert-{{ alertType }} alert-dismissible fade show custom-alert" role="alert">
+  {{ alertMessage }}
+</div>
+
+<div class="form-container">
+  <form (ngSubmit)="onLogin()" class="login-form">
+    <h2>Login</h2>
+
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" [(ngModel)]="user.email" name="email" required #emailInput />
+    </div>
+
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" [(ngModel)]="user.password" name="password" required />
+    </div>
+    <p class="login-para">Don't have an account <a routerLink="/register">Create Account</a></p>
+    <button type="submit">Login</button>
+  </form>
+</div>

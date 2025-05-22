@@ -1,0 +1,53 @@
+<div class="notes-nav">
+  <div class="left-nav">
+    <h1>NoteNest</h1>
+  </div>
+  <div class="center-nav">
+    <input type="search" placeholder="Search Notes..." />
+  </div>
+  <div class="right-nav">
+    <span>Welcome {{ userName }}</span>
+    <button class="logout-btn">Logout</button>
+  </div>
+</div>
+
+<div class="nav-section">
+  <div class="new-btn" (click)="openModal()">New</div>
+
+  <!-- Modal -->
+  <div class="modal-backdrop" *ngIf="showModal">
+    <div class="modal-content">
+      <h2>Create New Note</h2>
+      <form (submit)="createNote()">
+        <input
+          type="text"
+          placeholder="Title"
+          [(ngModel)]="newNote.title"
+          name="title"
+          required
+          #titleInput
+        />
+
+        <textarea
+          rows="5"
+          placeholder="Content"
+          [(ngModel)]="newNote.content"
+          name="content"
+          required
+        ></textarea>
+        <div class="modal-buttons">
+          <button type="submit">Save</button>
+          <button type="button" (click)="closeModal()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="notes-container">
+    <div class="note-card" *ngFor="let note of notes">
+      <h1>{{ note.title }}</h1>
+      <p>{{ note.content }}</p>
+      <!-- <small>{{ note.createdAt | date : "short" }}</small> -->
+    </div>
+  </div>
+</div>

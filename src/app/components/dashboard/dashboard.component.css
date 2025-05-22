@@ -1,0 +1,135 @@
+.notes-nav {
+  background-color: white;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* added shadow */
+}
+
+.right-nav button {
+  background-color: rgba(211, 98, 98, 0.776);
+  border: 0;
+  outline: 0;
+  border-radius: 10px;
+  padding: 5px 20px;
+  margin-left: 1rem;
+  font-size: 18px;
+  color: white;
+}
+
+.right-nav span {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.center-nav input {
+  background-color: rgba(234, 223, 223, 0.2);
+  /* color: rgb(236, 226, 226); */
+  padding: 10px;
+  border: 0;
+  outline: 0;
+  border-radius: 10px;
+}
+
+.nav-section {
+  background-color: rgba(222, 239, 222, 0.393);
+  width: 100%;
+  min-height: 100vh;
+}
+.nav-section .new-btn {
+  position: fixed;
+  z-index: 1000;
+  bottom: 3rem;
+  right: 3rem;
+  background-color: rgb(64, 94, 195);
+  color: white;
+  font-size: 18px;
+  padding: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content input,
+.modal-content textarea {
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 1rem;
+}
+
+.modal-buttons button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.modal-buttons button:first-child {
+  background-color: #4caf50;
+  color: white;
+}
+
+.modal-buttons button:last-child {
+  background-color: #f44336;
+  color: white;
+}
+
+.notes-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px 10%;
+}
+
+.note-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  width: 250px;
+  word-wrap: break-word;
+}
+
+.note-card h1 {
+  font-weight: 500;
+  margin-top: 0;
+  font-size: 32px;
+}
+
+.note-card small {
+  color: rgb(163, 67, 67);
+}
