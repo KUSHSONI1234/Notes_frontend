@@ -9,20 +9,20 @@ import { Router, RouterLink } from '@angular/router';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
   imports: [FormsModule, CommonModule, ReactiveFormsModule, RouterLink],
-  standalone: true
+  standalone: true,
 })
 export class RegisterComponent implements AfterViewInit {
   user = {
     name: '',
     email: '',
-    password: ''
+    password: '',
   };
 
   alertMessage: string = '';
   alertType: 'success' | 'danger' = 'success';
   showAlert: boolean = false;
 
-  constructor(private http: HttpClient,private router:Router) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   @ViewChild('nameInput') nameInput!: ElementRef;
 
@@ -31,34 +31,37 @@ export class RegisterComponent implements AfterViewInit {
   }
 
   onSubmit() {
-  if (!this.user.name || !this.user.email || !this.user.password) {
-    this.showBootstrapAlert('Please fill out all fields.', 'danger');
-    return;
-  }
+    if (!this.user.name || !this.user.email || !this.user.password) {
+      this.showBootstrapAlert('Please fill out all fields.', 'danger');
+      return;
+    }
 
-  this.http.post('http://localhost:5232/api/auth/register', this.user)
-    .subscribe(
-      (res: any) => {
-        this.showBootstrapAlert('User registered successfully!', 'success');
+    this.http
+      .post('http://localhost:5232/api/auth/register', this.user)
+      .subscribe(
+        (res: any) => {
+          this.showBootstrapAlert('User registered successfully!', 'success');
 
-        // Delay navigation by 2 seconds
-        setTimeout(() => {
-          this.router.navigateByUrl("/login");
-        }, 2000);
+          // Delay navigation by 2 seconds
+          setTimeout(() => {
+            this.router.navigateByUrl('/login');
+          }, 2000);
 
-        this.resetBtn();
-      },
-      (err) => {
-        const msg = err.error || 'Something went wrong.';
-        if (msg === 'User already exists.') {
-          this.showBootstrapAlert('User already exists. Try logging in.', 'danger');
-        } else {
-          this.showBootstrapAlert(msg, 'danger');
+          this.resetBtn();
+        },
+        (err) => {
+          const msg = err.error || 'Something went wrong.';
+          if (msg === 'User already exists.') {
+            this.showBootstrapAlert(
+              'User already exists. Try logging in.',
+              'danger'
+            );
+          } else {
+            this.showBootstrapAlert(msg, 'danger');
+          }
         }
-      }
-    );
-}
-
+      );
+  }
 
   resetBtn() {
     this.user = { name: '', email: '', password: '' };

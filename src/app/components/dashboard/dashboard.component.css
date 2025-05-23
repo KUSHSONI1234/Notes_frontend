@@ -133,3 +133,22 @@
 .note-card small {
   color: rgb(163, 67, 67);
 }
+
+
+.icons {
+  margin-top: 10px;
+}
+
+.edit-icon, .delete-icon {
+  cursor: pointer;
+  margin-right: 10px;
+  color: #555;
+}
+
+.edit-icon:hover {
+  color: #007bff;
+}
+
+.delete-icon:hover {
+  color: #dc3545;
+}

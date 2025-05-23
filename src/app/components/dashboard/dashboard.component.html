@@ -47,7 +47,28 @@
     <div class="note-card" *ngFor="let note of notes">
       <h1>{{ note.title }}</h1>
       <p>{{ note.content }}</p>
-      <!-- <small>{{ note.createdAt | date : "short" }}</small> -->
+
+      <div class="icons">
+        <i class="fas fa-edit edit-icon" (click)="editNote(note)"></i>
+        <i class="fas fa-trash delete-icon" (click)="deleteNote(note.id)"></i>
+      </div>
     </div>
   </div>
+
+  <!-- Edit Modal -->
+  <div class="modal" *ngIf="showModal">
+    <div class="modal-content">
+      <h2>Edit Note</h2>
+      <input [(ngModel)]="editableNote.title" type="text" placeholder="Title" />
+      <textarea
+        [(ngModel)]="editableNote.content"
+        placeholder="Content"
+      ></textarea>
+
+      <div class="modal-buttons">
+        <button (click)="updateNote()">Save</button>
+        <button (click)="closeModal()">Cancel</button>
+      </div>
+    </div>
+  </div>   
 </div>
